@@ -1,35 +1,102 @@
 .benefits {
+    $benefit-margin-desktop: 10px;
+    $benefit-margin-wide: 20px;
+
+
     width: 100%;
     background-color: #131C25;
-    padding: 100px 0 100px;
+    padding: 50px 0 0;
+
+    @include media(">=tablet") {
+        padding: 100px 0 100px;
+    }
+
+    @include media(">=desktop") {
+        padding: 100px 0 100px;
+    }
+
+    @include media(">=wide") {
+        padding: 100px 0 100px;
+    }
 
     &__title {
-        margin-bottom: 90px;
+        margin-bottom: 50px;
+
+        @include media(">=tablet") {
+            margin-bottom: 70px;
+        }
+
+        @include media(">=wide") {
+            margin-bottom: 90px;
+        }
     }
     
     &__list {
         display: flex;
         margin: 0 auto;
         align-items: stretch;
-        width: calc(100% + 20px*2); //depends on .benefits-item margin*2
-        margin: 0 -20px; //depends on .benefits-item margin
+        flex-wrap: wrap;
+        max-width: 250px;
+
+        @include media(">=tablet") {
+            max-width: 700px;
+        }
+
+        @include media(">=desktop") {
+            max-width: none;
+            width: calc(100% + 2*#{$benefit-margin-desktop}); 
+            margin: 0 -#{$benefit-margin-desktop}; 
+        }
+
+        @include media(">=wide") {
+            width: calc(100% + 2*#{$benefit-margin-wide});
+            margin: 0 -#{$benefit-margin-wide}; 
+        }
     }
 
     &__item {
-        flex: 0 0 25%; //4x1
-        margin-bottom: 0;
+        flex: 0 0 100%; //1x4
+        margin-bottom: 40px;
+
+        @include media(">=tablet") {
+            flex: 0 0 50%; //2x2
+        }
+
+        @include media(">=desktop") {
+            flex: 0 0 25%; //4x1
+            margin-bottom: 0;
+        }
     }
 
     .benefit {
         height: 100%;
-        margin: 0 20px;
         border: 1px solid var(--color-grey-dark);
         border-radius: 0 40px 0 40px;
         text-align: center;
-        padding: 40px 40px 50px;
+        margin: 0;
+        padding: 40px 30px 50px;
+
+        @include media(">=tablet") {
+            margin: 0 20px;
+            padding: 40px 40px 50px;
+        }
+
+        @include media(">=desktop") {
+            padding: 30px 20px 40px;
+            margin: 0 $benefit-margin-desktop;
+        }
+
+        @include media(">=wide") {
+            padding: 40px 40px 50px;
+            margin: 0 $benefit-margin-wide;
+        }
 
         &__icon {
-            margin-bottom: 10px;
+            margin-bottom: 0px;
+
+            @include media(">=tablet") {
+                margin-bottom: 10px;
+            }
         }
 
         &__text {
@@ -39,5 +106,4 @@
             font-weight: 500;
         }
     }
-
 }

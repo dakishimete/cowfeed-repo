@@ -41,9 +41,22 @@ a {
 }
 
 .max-width-container {
-    max-width: 1150px;
-    padding: 0;
+    max-width: 450px;
+    padding: 0 20px;
     margin: 0 auto;
+
+    @include media(">=tablet") {
+        padding: 0 50px;
+        max-width: none;
+    }
+
+    @include media(">=desktop") {
+        max-width: 1150px;
+    }
+
+    @include media(">=wide") {
+        padding: 0;
+    }
 }
 
 .main {
@@ -55,7 +68,19 @@ a {
     text-align: center;
     font-weight: 600;
     line-height: 1.2;
-    font-size: 36px;
+    font-size: 28px;
+
+    @include media(">=tablet") {
+        font-size: 32px;
+    }
+
+    @include media(">=desktop") {
+        font-size: 32px;
+    }
+    
+    @include media(">=wide") {
+        font-size: 36px;
+    }
 }
 
 
