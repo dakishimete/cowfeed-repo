@@ -1,0 +1,90 @@
+.burger {
+    @include media("<tablet") {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 18px;
+        cursor: pointer;
+
+        &__icon {
+            & span,
+            &::before,
+            &::after {
+                position: absolute;
+                left: 0;
+                height: 10%;
+                width: 100%;
+                background-color: #fff;
+                transition: all 0.3s ease;
+                z-index: 10;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+            }
+
+            &::before {
+                top: 0;
+            }
+
+            &::after {
+                bottom: 0;
+            }
+
+            & span {
+                top: 50%;
+                transform: scale(1) translate(0px, -50%);
+            } 
+        }
+
+        &::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px; //header height
+            background-color: #181819;
+            z-index: 2;
+        }
+
+        &::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(24, 24, 25, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        &.burger--active {
+
+            .burger__icon {
+                span {
+                    transform: scale(0) translate(0px, -50%);
+                }
+    
+                &::before {
+                    top: 48%;
+                    transform: rotate(-45deg) translate(0px, -50%);
+                }
+    
+                &::after {
+                    bottom: 48%;
+                    transform: rotate(45deg) translate(0px, 50%);
+                }
+            }  
+
+            &::after {
+                left: 0;
+            }
+        }
+    }
+
+    @include media(">=tablet") {
+        display: none;
+    }
+}
