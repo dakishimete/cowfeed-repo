@@ -5,10 +5,30 @@
 
     width: 100%;
     background-color: #181819;
-    padding: 200px 0 100px;
+    padding: 50px 0 0;
+
+    @include media(">=tablet") {
+        padding: 140px 0 100px;
+    }
+
+    @include media(">=desktop") {
+        padding: 140px 0 100px;
+    }
+
+    @include media(">=wide") {
+        padding: 200px 0 100px;
+    }
 
     &__title {
-        margin-bottom: 90px;
+        margin-bottom: 50px;
+
+        @include media(">=tablet") {
+            margin-bottom: 70px;
+        }
+
+        @include media(">=wide") {
+            margin-bottom: 90px;
+        }
     }
 
     ol {
@@ -18,13 +38,35 @@
     &__list {
         display: flex;
         flex-wrap: wrap;
-        width: calc(100% + 2*#{$consumer-margin-wide});
-        margin: 0 -#{$consumer-margin-wide}; 
+        width: 100%; 
+        margin: 0 auto;
+        max-width: 300px;
+
+        @include media(">=tablet") {
+            max-width: none;
+            width: 100%; 
+            margin: 0 auto;
+        }
+
+        @include media(">=desktop") {
+            width: calc(100% + 2*#{$consumer-margin-desktop});
+            margin: 0 -#{$consumer-margin-desktop}; 
+        }
+
+        @include media(">=wide") {
+            width: calc(100% + 2*#{$consumer-margin-wide});
+            margin: 0 -#{$consumer-margin-wide}; 
+        }
     }
 
     &__item {
-        flex: 0 0 33.33%; //3x1
-        margin-bottom: 0;
+        flex: 0 0 100%; //1x3
+        margin-bottom: 30px;
+
+        @include media(">=desktop") {
+            flex: 0 0 33.33%; //3x1
+            margin-bottom: 0;
+        }
     }
 
     .consumer {
@@ -32,29 +74,77 @@
         border: 1px solid var(--color-grey-dark);
         border-radius: 0 40px 0 40px;
         position: relative;
+        margin: 0 auto;
+        padding: 85px 25px 35px;
         max-width: 400px;
-        text-align: left;
-        margin: 0 20px;
-        padding: 110px 40px 30px;
+        text-align: center;
+
+        @include media(">=tablet") {
+            padding: 70px 50px 60px 100px;
+            text-align: left;
+        }
+
+        @include media(">=desktop") {
+            max-width: 100%;
+            margin: 0 10px;
+            padding: 80px 30px 30px;
+        }
+
+        @include media(">=wide") {
+            margin: 0 20px;
+            padding: 110px 40px 30px;
+        }
+
 
         &:before {
             counter-increment: ol-numbers;
             content: counter(ol-numbers);
             position: absolute;
-            top: 50px;
-            left: 40px;
             color: var(--color-grey-dark);
-            font-size: 36px;
             line-height: 1.2;
             font-weight: 700;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 36px;
+
+            @include media(">=tablet") {
+                top: 65px;
+                left: 35px;
+                font-size: 46px;
+                transform: translateX(0);
+            }
+
+            @include media(">=desktop") {
+                font-size: 36px;
+                top: 25px;
+                left: 30px;
+            }
+    
+            @include media(">=wide") {
+                top: 50px;
+                left: 40px;
+            }
         }
 
         &__title {
             color: #fff;
             font-size: 18px;
-            margin-bottom: 15px;
             line-height: 1.6;
             font-weight: 600;
+            margin-bottom: 15px;
+
+            @include media(">=tablet") {
+                margin-bottom: 15px;
+            }
+
+            @include media(">=desktop") {
+                margin-bottom: 8px;
+            }
+    
+            @include media(">=wide") {
+                margin-bottom: 15px;
+            }
         }
 
         &__desc {
