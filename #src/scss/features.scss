@@ -1,0 +1,105 @@
+.features {
+    width: 100%;
+    background-color: #131C25;  
+    padding: 170px 0 200px;
+
+    &__title {
+        margin-bottom: 90px;
+    }
+
+    &__item {
+        margin-bottom: 100px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:nth-child(even){
+            .feature {
+                flex-direction: row-reverse;
+                
+                &__text {
+                    padding: 0 10px 0 70px;
+                }
+            }
+        }
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+
+        &__text {
+            flex: 0 0 35%;
+            padding: 0 70px 0 10px;
+        }
+
+        &__title {
+            line-height: 1.2;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        &__desc {
+            color: var(--color-text-grey);
+            line-height: 1.5;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        &-img {
+            flex: 0 0 65%;
+            position: relative;
+
+            &__main {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            &__overlay {
+                // display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+                &--1 {
+                    width: 100%;
+                    left: 50px;
+                }
+
+                &--2 {
+                    width: 97%;
+                    top: 30px;
+                    left: 50px;
+                }
+
+                &--3 {
+                    width: 95%;
+                    left: 60px;
+                    top: 10px;
+                }
+
+                &--4 {
+                    width: 97%;
+                    top: 35px;
+                    left: 50px;
+
+                }
+            }
+        }
+    }
+}
