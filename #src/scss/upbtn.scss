@@ -1,0 +1,57 @@
+.upbtn {
+    position: fixed;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+    bottom: 20px;
+    right: 10px;
+    cursor: pointer;
+
+    span,
+    &::before,
+    &::after {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        width: 5px;
+        border-radius: 20px;
+        background-color: #000;
+    }
+
+    span {
+        height: calc(100% - 12px * 2);
+        transform: translate(-50%, 0);
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        transform-origin: top;
+        height: 25px;
+    }
+
+    &::before {
+        left: 52%;
+        transform: translate(-50%, 0) rotate(40deg);
+    }
+
+    &::after {
+        left: 48%;
+        transform: translate(-50%, 0) rotate(-40deg);
+    }
+
+    &:hover {
+        span,
+        &::before,
+        &::after {
+            animation: upbtn 0.8s infinite;
+        }
+    }
+
+    @keyframes upbtn {
+        0% {top: 12px;}
+        50% {top: 9px;}
+    }
+}
