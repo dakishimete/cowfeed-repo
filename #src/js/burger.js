@@ -9,3 +9,12 @@ if(burger) {
         document.body.classList.toggle('locked'); //lock page from scroling when burger in opened
     });
 }
+
+function closeBurgerMenu() { //used in anchors.js, close burger after click on menu link
+    if(burger.classList.contains('burger--active')){
+        burger.classList.remove('burger--active');
+        menu.classList.remove('burger--active');
+        buyBtn.classList.remove('burger--active');
+        document.body.classList.remove('locked');
+    }
+}
