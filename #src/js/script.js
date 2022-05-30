@@ -2,4 +2,5 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     @@include('burger.js')
+    @@include('up.js')
 });
