@@ -1,40 +1,98 @@
 .price {
     width: 100%;
     background-color: #181819;
-    padding: 100px 0;
+    padding: 90px 0 70px;
+
+    @include media(">=tablet") {
+        padding: 50px 0 100px;
+    }
+
+    @include media(">=desktop") {
+        padding: 100px 0 170px;
+    }
 
     &__title {
-        margin-bottom: 90px;
+        margin-bottom: 30px;
+
+        @include media(">=desktop") {
+            margin-bottom: 70px;
+        }
+
+        @include media(">=wide") {
+            margin-bottom: 90px;
+        }
     }
 
     &__content {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media(">=desktop") {
+            flex-direction: row;
+        }
     }
 
     &__col {
-        flex: 0 0 50%;
+        flex: 0 0 100%;
+        align-self: center;
+
+        @include media(">=desktop") {
+            flex: 0 0 50%;
+        }
     }
 
     &-description {
+        margin-bottom: 30px;
+
+        @include media(">=desktop") {
+            margin-bottom: 0;
+        }
 
         &__title {
             color: #fff;
             font-weight: 600;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            font-size: 20px;
+            @include media(">=tablet") {
+                font-size: 24px;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            @include media(">=desktop") {
+                font-size: 22px;
+            }
+    
+            @include media(">=wide") {
+                font-size: 24px;
+            }
         }
 
         &__list {
-            margin: 0 0 30px 30px;
+            margin: 0 0 25px 30px;
+
+            @include media(">=desktop") {
+                margin: 0 30px 30px 30px;
+            }
+    
+            @include media(">=wide") {
+                margin: 0 0 30px 30px;
+            }
         }
 
         &__item {
             color: var(--color-text-grey);
             font-weight: 500;
             position: relative;
-            font-size: 16px;
-            line-height: 2;
+            font-size: 15px;
+            line-height: 1.8;
+
+            @include media(">=tablet") {
+                font-size: 16px;
+                line-height: 2;
+            }
 
             &:before {
                 content: url(../img/checkmark.svg);
@@ -52,8 +110,13 @@
         &__note {
             color: var(--color-text-grey);
             font-weight: 500;
-            font-size: 16px;
-            line-height: 2;
+            font-size: 15px;
+            line-height: 1.8;
+
+            @include media(">=tablet") {
+                font-size: 16px;
+                line-height: 2;
+            }
         }
 
         &__payments {
@@ -62,19 +125,42 @@
     }
 
     &-rates {
-        padding-left: 20px;
+        align-self: center;
+
+        @include media(">=wide") {
+            padding-left: 20px;
+        }
 
         &__list {
+            display: block;
 
+            @include media(">=tablet") {
+                display: flex;
+                justify-content: center;
+            }
+
+            @include media(">=desktop") {
+                display: block;
+            }
         }
 
         &__item {
             margin-bottom: 30px;
 
-            &:last-child {
+            @include media(">=tablet") {
+                margin-right: 20px;
                 margin-bottom: 0;
             }
 
+            @include media(">=desktop") {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -82,16 +168,39 @@
         border: 1.5px solid #263546;
         border-radius: 10px;
         transition: all 0.3s ease;
-        padding: 40px;
+        padding: 30px 25px 35px;
 
         display: grid;
-        grid-template-rows: 50px auto;
-        grid-template-columns: auto auto;
         grid-gap: 10px;
+
+        grid-template-rows: auto 50px 30px auto;
+        grid-template-columns: 1fr;
+        justify-items: center;
         grid-template-areas: 
+            "time"
+            "desc"
+            "sum"
+            "btn"
+            ;
+
+        @include media(">=tablet") {
+            padding: 40px;
+        }
+
+        @include media(">=desktop") {
+            padding: 40px 15px 40px 30px;
+            grid-template-rows: 40px auto;
+            grid-template-columns: auto auto;
+            justify-items: left;
+            grid-template-areas: 
                 "time sum"
                 "desc btn";
-        justify-items: left;
+        }
+
+        @include media(">=wide") {
+            padding: 40px;
+            grid-template-rows: 50px auto;
+        }
         
         &:hover {
             border-color: #2d3f52;
@@ -130,7 +239,11 @@
             line-height: 1.5;
             font-weight: 500;
             color: var(--color-text-grey);
-            align-self: center;
+            align-self: top;
+
+            @include media(">=desktop") {
+                align-self: center;
+            }
 
             &--sum {
                 color: var(--color-green);
@@ -146,6 +259,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
             padding: 20px 60px;
+
+            @include media(">=desktop") {
+                padding: 20px 40px;
+            }
+
+            @include media(">=wide") {
+                padding: 20px 60px;
+            }
 
             &:hover {
                 background-color: var(--color-green-light);
