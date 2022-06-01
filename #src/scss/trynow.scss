@@ -1,7 +1,6 @@
 .trynow {
     width: 100%;
-    padding: 10px 0;
-
+    padding: 10px 20px;
     position: relative;
 
         &::before,
@@ -31,13 +30,22 @@
         flex-direction: column;
         align-items: center;
         margin: 0 auto;
-
-        width: 1150px;
+        max-width: 1150px;
     }
 
     &__title {
-        padding: 50px 100px 0;
-        margin-bottom: 40px;
+        padding: 40px 20px 0;
+        margin-bottom: 30px;
+        font-size: 25px;
+
+        @include media(">=tablet") {
+            padding: 50px 70px 0;
+        }
+
+        @include media(">=desktop") {
+            padding: 50px 100px 0;
+            margin-bottom: 40px;
+        }
     }
 
     &__buy-btn {
@@ -51,16 +59,29 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        z-index: 10;
+        margin-bottom: 30px;
 
         &:hover {
             background-color: var(--color-green-light);
         }
+
+        @include media(">=desktop") {
+            margin-bottom: 40px;
+        }
     }
 
     &__img {
-        font-size: 0;
-        padding: 40px 40px 0;
+        display: none;
+
+        @include media(">=tablet") {
+            display: block;
+            font-size: 0;
+            padding: 0 20px;
+        }
+
+        @include media(">=desktop") {
+            padding: 0 40px;
+        }
 
         img {
             width: 100%;
